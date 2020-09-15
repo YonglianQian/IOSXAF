@@ -1,4 +1,5 @@
 ﻿using IOSXAF.Views;
+using Microsoft.AppCenter.Analytics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,9 @@ namespace IOSXAF.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            
+            Analytics.TrackEvent("Login button is clicked at " + DateTime.Now.ToLongTimeString());
+
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
